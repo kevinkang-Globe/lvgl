@@ -297,7 +297,7 @@ lv_fs_res_t lv_fs_write(lv_fs_file_t * file_p, const void * buf, uint32_t btw, u
 			uint32_t start_position = file_p->cache->file_position;
 			uint32_t end_position = file_p->cache->file_position + bw_tmp - 1;
 			char * cache_buffer = file_p->cache->buffer;
-			char * write_buffer = buf;
+			const char * write_buffer = buf;
 			
 			if(start_position <= file_p->cache->start && end_position >= file_p->cache->end){
 				lv_memcpy(  cache_buffer, 
